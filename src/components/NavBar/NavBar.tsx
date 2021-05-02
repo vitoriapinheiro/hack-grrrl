@@ -18,7 +18,7 @@ export default function NavBar() {
           <Text>Perfil</Text>
         </MiddleBox>
         <Button>
-          <Text>Sair da ADA</Text>
+          <Text>Sair</Text>
           <KeyboardTabIcon/>
         </Button>
       </Container>
