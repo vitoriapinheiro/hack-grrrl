@@ -50,14 +50,23 @@ function LoginView() {
   },[])
   const [login, setLogin] = useState({ email: '', password: '' });
 
-  const teste = () =>{
-    console.log(login)
+  const log = async (formEvent: any) => {
+    formEvent.preventDefault();
+    db.collection("users").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const usable = doc.data();
+        if (usable.email == login.email && usable.password == usable.password){
+          console.log('entrei')
+        }
+      });
+      setLogin({ email: '', password: '' });
+  });
   }
   return (
     <>
       <BackgroundImage>
         <Logo src={LogoImg}/>
-        <Box>
+        <Box onSubmit={log}>
           <H1 weight='300' align='center'>Seja bem-vinda!</H1>
           <TextFieldCustom
              className="email"
@@ -65,6 +74,7 @@ function LoginView() {
              label="E-mail"
              variant="filled"
              type="email"
+             value={login.email}
              fullWidth
              onChange={(e) => setLogin({ ...login, email: e.target.value })}
              required
@@ -75,13 +85,14 @@ function LoginView() {
             label="Senha"
             variant="filled"
             type='password'
+            value={login.password}
             fullWidth
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
             required
           />
           <ButtonsBox>
             <Register>Cadastrar</Register>
-            <Login type="submit" onClick={() => teste()}>Entrar</Login>
+            <Login type="submit">Entrar</Login>
           </ButtonsBox>
         </Box>
       </BackgroundImage>

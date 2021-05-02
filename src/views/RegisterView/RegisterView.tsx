@@ -29,12 +29,32 @@ import { H1 } from '../../global/components';
 
 function RegisterView() {
   var db = firebase.firestore();
-  db.collection("Hacka").get().then((querySnapshot) => {
+  db.collection("users").get().then((querySnapshot) => {
     console.log(querySnapshot)
     querySnapshot.forEach((doc) => {
         console.log(doc.data());
     });
   });
+
+  const register = async (formEvent: any) => {
+    formEvent.preventDefault();
+
+    db.collection("users").add({
+      email: login.email,
+      name: login.name,
+      password: login.password,
+      phone: login.phone,
+      interest: login.interest,
+  })
+  .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+      setLogin({ name: '', email: '', password: '', phone: '', interest: '' });
+  })
+  .catch((error) => {
+      console.error("Error adding document: ", error);
+  });
+  }
+
   useEffect(() => {
     todosRef.once('value', (snapshot) => {
       let items = snapshot.val();
@@ -61,14 +81,12 @@ function RegisterView() {
   },[])
   const [login, setLogin] = useState({ name: '', email: '', password: '', phone: '', interest: '' });
 
-  const teste = () =>{
-    console.log(login)
-  }
+
   return (
     <>
       <BackgroundImage>
         <Logo src={LogoImg}/>
-        <Box>
+        <Box onSubmit={register}>
           <H1 weight='300' align='center'>Cadastro</H1>
           <BoxText>
             <TextFieldCustom
@@ -77,6 +95,7 @@ function RegisterView() {
               placeholder="Nome"
               variant="filled"
               type="text"
+              value={login.name}
               onChange={(e) => setLogin({ ...login, name: e.target.value })}
               required
               InputProps={{
@@ -93,6 +112,7 @@ function RegisterView() {
               placeholder="Telefone"
               variant="filled"
               type='number'
+              value={login.phone}
               onChange={(e) => setLogin({ ...login, phone: e.target.value })}
               required
               InputProps={{
@@ -109,6 +129,7 @@ function RegisterView() {
               placeholder="E-mail"
               variant="filled"
               type="email"
+              value={login.email}
               onChange={(e) => setLogin({ ...login, email: e.target.value })}
               required
               InputProps={{
@@ -125,6 +146,7 @@ function RegisterView() {
               placeholder="Interesses"
               variant="filled"
               type="email"
+              value={login.interest}
               onChange={(e) => setLogin({ ...login, interest: e.target.value })}
               required
               InputProps={{
@@ -141,6 +163,7 @@ function RegisterView() {
               placeholder="Senha"
               variant="filled"
               type="password"
+              value={login.password}
               onChange={(e) => setLogin({ ...login, password: e.target.value })}
               required
               InputProps={{
@@ -154,7 +177,7 @@ function RegisterView() {
           </BoxText>
           <ButtonsBox>
             <Register>Cadastrar</Register>
-            <Login type="submit" onClick={() => teste()}>Finalizar Cadastro</Login>
+            <Login type="submit" >Finalizar Cadastro</Login>
           </ButtonsBox>
         </Box>
       </BackgroundImage>
