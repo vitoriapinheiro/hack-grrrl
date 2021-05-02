@@ -2,7 +2,14 @@ import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
-export const Box = styled.form`
+export const Box = styled.div``;
+
+export const Container = styled.div`
+  margin-top: 40px;
+`;
+
+
+export const BoxForm = styled.form`
     width: 419px;
     height: 381px;
     box-shadow: 1px 2px 20px -4px rgba(0, 0, 0, 0.2);

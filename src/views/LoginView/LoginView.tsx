@@ -7,6 +7,8 @@ import firebase from 'firebase/app'
 
 import {
   Box,
+  BoxForm,
+  Container,
   TextFieldCustom,
   BackgroundImage,
   Login,
@@ -68,7 +70,7 @@ function LoginView() {
       <BackgroundImage>
         <Logo src={LogoImg}/>
         <Wave src={WaveImg}/>
-        <Box onSubmit={log}>
+        <BoxForm onSubmit={log}>
           <H1 weight='300' align='center'>Seja bem-vinda!</H1>
           <TextFieldCustom
              className="email"
@@ -96,7 +98,7 @@ function LoginView() {
             <Register>Cadastrar</Register>
             <Login type="submit">Entrar</Login>
           </ButtonsBox>
-        </Box>
+        </BoxForm>
       </BackgroundImage>
      
     </>
