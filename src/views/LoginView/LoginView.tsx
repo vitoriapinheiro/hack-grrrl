@@ -1,13 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '../../components';
 import {todosRef} from '../../backend/firebase';
+import LogoImg from '../../assets/Logo2.png'
+import WaveImg from '../../assets/Wave.png'
 import "firebase/firestore"
 import firebase from 'firebase/app'
 
 import {
   Box,
+  BoxForm,
   Container,
+  TextFieldCustom,
+  BackgroundImage,
+  Login,
+  Register,
+  ButtonsBox,
+  Logo,
+  Wave
 } from './styles';
+import { H1 } from '../../global/components';
 
 function LoginView() {
   var db = firebase.firestore();
@@ -41,19 +52,60 @@ function LoginView() {
       console.error(error);
     });
   },[])
+  const [login, setLogin] = useState({ email: '', password: '' });
+
+  const log = async (formEvent: any) => {
+    formEvent.preventDefault();
+    db.collection("users").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        const usable = doc.data();
+        if (usable.email == login.email && usable.password == usable.password){
+          console.log('entrei')
+        }
+      });
+      setLogin({ email: '', password: '' });
+  });
+  }
   return (
     <>
-      <Container>
-        <Card 
-          likes={2} 
-          dislikes={2} 
-          img={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYbM174xWDaTnMb40TN_IbfKPqD4bY7TN4Q&usqp=CAU'}
-          logo={'https://marcas-logos.net/wp-content/uploads/2019/11/Simbolo-Star-Wars.jpg'}
-          topPost={true}
+      <BackgroundImage>
+        <Logo src={LogoImg}/>
+        <Wave src={WaveImg}/>
+        <BoxForm onSubmit={log}>
+          <H1 weight='300' align='center'>Seja bem-vinda!</H1>
+          <TextFieldCustom
+             className="email"
+             id="filled-basic"
+             label="E-mail"
+             variant="filled"
+             type="email"
+             value={login.email}
+             fullWidth
+             onChange={(e) => setLogin({ ...login, email: e.target.value })}
+             required
           />
-      </Container>
+          <TextFieldCustom 
+            className="email"
+            id="filled-basic"
+            label="Senha"
+            variant="filled"
+            type='password'
+            value={login.password}
+            fullWidth
+            onChange={(e) => setLogin({ ...login, password: e.target.value })}
+            required
+          />
+          <ButtonsBox>
+            <Register>Cadastrar</Register>
+            <Login type="submit">Entrar</Login>
+          </ButtonsBox>
+        </BoxForm>
+      </BackgroundImage>
+     
     </>
   );
 }
 
 export default LoginView ;
+
+
