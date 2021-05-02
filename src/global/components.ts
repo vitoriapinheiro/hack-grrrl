@@ -76,3 +76,25 @@ export const Text = styled.p`
     position: ${(p: Props) => p.position || 'unset'};
     transition: ${(p: Props) => p.transition || 'unset'};
 `;
+
+export const H1 = styled.h1`
+  font-family: ${(p: Props) => p.fontFamily || 'Roboto, sans-serif'};
+  width: ${(p: Props) => p.width || '100%'};
+  height: ${(p: Props) => p.height || 'fit-content'};
+  margin: ${(p: Props) => p.margin || '0 0'};
+  padding: ${(p: Props) => p.padding || '0 0'};
+  font-size: ${(p: Props) => p.textSize || '2em'};
+  font-style: ${(p: Props) => p.fontStyle || 'inherit'};
+  font-weight: ${(p: Props) => p.weight || 'bold'};
+  text-indent: ${(p: Props) => p.ident || '0'};
+  opacity: ${(p: Props) => p.opacity || 1};
+  color: ${(p: Props) => p.textColor || 'inherit'};
+  text-align: ${(p: Props) => p.align || 'unset'};
+  text-shadow: ${(p: Props) => p.textShadow || 'unset'};
+  align-content: ${(p: Props) => p.justify || 'unset'};
+  position: ${(p: Props) => p.position || 'unset'};
+  border-top: ${(p: Props) => p.borderTop || 'none'};
+  border-bottom: ${(p: Props) => p.borderBottom || 'none'};
+  border-left: ${(p: Props) => p.borderLeft || 'none'};
+  border-right: ${(p: Props) => p.borderRight || 'none'};
+`;

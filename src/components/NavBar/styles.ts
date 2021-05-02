@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const NavBarCenterButtons = styled.div`
-  margin: 0 10px 0 0;
-  color: #888888;
-`;
-
 export const Container = styled.div`
   height: 65px;
   width: 100vw;
