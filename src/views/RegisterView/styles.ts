@@ -3,12 +3,12 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
 export const Box = styled.form`
-    width: 419px;
-    height: 381px;
+    width: 596px;
+    height: 433px;
     box-shadow: 1px 2px 20px -4px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     border-top: 20px solid ${({ theme }) => theme.main.colors.purple};
-    padding: 20px 40px;
+    padding: 20px 35px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -57,18 +57,30 @@ export const Register = styled(Button)`
 
 `;
 
+export const BoxText = styled.div`
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between
+`;
+
 export const TextFieldCustom = styled(TextField)`
-  /* & .MuiInputBase-root {
+  & .MuiInputBase-root {
     height: 45px;
+    width: 250px;
   }
-  & .MuiFormLabel-root.Mui-focused{
+  /* & .MuiFormLabel-root.Mui-focused{
     color:${({ theme }) => theme.main.colors.darkBlue};
   } */
   & .MuiFilledInput-underline:after, .MuiInput-underline:after{
     border-color: ${({ theme }) => theme.main.colors.purple};
   }
-  /* & .MuiFormLabel-root {
-    margin-top: -3px;
-    font-size: 14px
-  } */
+  & .MuiInputBase-root .MuiInputBase-input {
+        padding: 0;
+  }
+  & .MuiInputBase-root .MuiInputAdornment-root {
+    margin-top: 0;
+  }
+
 `;

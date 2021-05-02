@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card } from '../../components';
 import {todosRef} from '../../backend/firebase';
+import LogoImg from '../../assets/Logo2.png'
 import "firebase/firestore"
 import firebase from 'firebase/app'
 
@@ -11,6 +12,7 @@ import {
   Login,
   Register,
   ButtonsBox,
+  Logo
 } from './styles';
 import { H1 } from '../../global/components';
 
@@ -46,9 +48,15 @@ function LoginView() {
       console.error(error);
     });
   },[])
+  const [login, setLogin] = useState({ email: '', password: '' });
+
+  const teste = () =>{
+    console.log(login)
+  }
   return (
     <>
       <BackgroundImage>
+        <Logo src={LogoImg}/>
         <Box>
           <H1 weight='300' align='center'>Seja bem-vinda!</H1>
           <TextFieldCustom
@@ -58,6 +66,8 @@ function LoginView() {
              variant="filled"
              type="email"
              fullWidth
+             onChange={(e) => setLogin({ ...login, email: e.target.value })}
+             required
           />
           <TextFieldCustom 
             className="email"
@@ -66,10 +76,12 @@ function LoginView() {
             variant="filled"
             type='password'
             fullWidth
+            onChange={(e) => setLogin({ ...login, password: e.target.value })}
+            required
           />
           <ButtonsBox>
             <Register>Cadastrar</Register>
-            <Login>Entrar</Login>
+            <Login type="submit" onClick={() => teste()}>Entrar</Login>
           </ButtonsBox>
         </Box>
       </BackgroundImage>
@@ -79,3 +91,5 @@ function LoginView() {
 }
 
 export default LoginView ;
+
+
