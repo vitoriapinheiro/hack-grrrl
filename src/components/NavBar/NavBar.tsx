@@ -1,12 +1,16 @@
 import React from 'react';
 
-import { Button, IconButton } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import NavBarImg from '../../assets/NavLogo.png';
 import KeyboardTabIcon from '@material-ui/icons/KeyboardTab';
-import { Container, Logo, MiddleBox } from './styles';
+import { Container, Logo, MiddleBox, Text2 } from './styles';
 import { Text } from '../../global/components';
+import {StyledLink} from '..';
+import { Redirect } from 'react-router-dom';
+import { useInfo } from '../../hook/LoggedProvider';
 
 export default function NavBar() {
+  const {setUserId, userId}  = useInfo()[0];
 
   return (
     <>
@@ -14,14 +18,20 @@ export default function NavBar() {
         <Logo src={NavBarImg}>
         </Logo>
         <MiddleBox>
-          <Text>Feed</Text>
-          <Text>Perfil</Text>
+          <StyledLink to="/feed">
+            <Text2>Feed</Text2>
+          </StyledLink>
+          <StyledLink to="/perfil">
+            <Text2>Perfil</Text2>
+          </StyledLink>
         </MiddleBox>
         <Button>
-          <Text>Sair</Text>
+          <Text onClick={()=> setUserId(false)}>Sair</Text>
           <KeyboardTabIcon/>
         </Button>
       </Container>
+      {userId?<></>: <Redirect to='/'></Redirect>}
+
     </>
   );
 }

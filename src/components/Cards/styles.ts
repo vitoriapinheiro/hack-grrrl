@@ -34,7 +34,7 @@ export const Icons = styled.div`
 `;
 
 export const LikesBox = styled.div`
-  width: 50px;
+  width: 53px;
   display: flex;
   flex-direction: row;
 `;

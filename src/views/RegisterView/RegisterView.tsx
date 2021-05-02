@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from '../../components';
-import {todosRef} from '../../backend/firebase';
+import React, { useState } from 'react';
+import { StyledLink } from '../../components';
 import LogoImg from '../../assets/Logo2.png';
 import WaveImg from '../../assets/Wave.png'
 import {
-  Close as CloseIcon,
   Person,
   Email,
   Phone,
@@ -14,7 +12,7 @@ import {
 import { InputAdornment } from '@material-ui/core';
 
 import "firebase/firestore";
-import firebase from 'firebase/app';
+import firebase from '../../backend/firebase';
 
 import {
   Box,
@@ -56,31 +54,6 @@ function RegisterView() {
       console.error("Error adding document: ", error);
   });
   }
-
-  useEffect(() => {
-    todosRef.once('value', (snapshot) => {
-      let items = snapshot.val();
-      console.log(snapshot)
-      console.log(items)
-      // let newState = [];
-      // for (let item in items) {
-      //   newState.push({
-      //     id: item,
-      //     task: items[item].task,
-      //     done: items[item].done
-      //   });
-      // }
-    });
-    todosRef.child("Card").get().then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-  },[])
   const [login, setLogin] = useState({ name: '', email: '', password: '', phone: '', interest: '' });
 
 
@@ -179,7 +152,9 @@ function RegisterView() {
             />
           </BoxText>
           <ButtonsBox>
-            <Register>Cadastrar</Register>
+            <StyledLink to = '/'>
+              <Register>Cancelar</Register>
+            </StyledLink >
             <Login type="submit" >Finalizar Cadastro</Login>
           </ButtonsBox>
         </Box>

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from '../../components';
-import {todosRef} from '../../backend/firebase';
+import React, { useState } from 'react';
 import LogoImg from '../../assets/Logo2.png'
 import WaveImg from '../../assets/Wave.png'
 import "firebase/firestore"
-import firebase from 'firebase/app'
+// import firebase from 'firebase/app'
+import firebase from '../../backend/firebase';
+import { useInfo } from '../../hook/LoggedProvider';
+import { Redirect } from 'react-router-dom';
 
 import {
-  Box,
   BoxForm,
-  Container,
   TextFieldCustom,
   BackgroundImage,
   Login,
@@ -19,48 +18,20 @@ import {
   Wave
 } from './styles';
 import { H1 } from '../../global/components';
+import { StyledLink } from '../../components/NavBar/styles';
 
 function LoginView() {
   var db = firebase.firestore();
-  db.collection("Hacka").get().then((querySnapshot) => {
-    console.log(querySnapshot)
-    querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-    });
-  });
-  useEffect(() => {
-    todosRef.once('value', (snapshot) => {
-      let items = snapshot.val();
-      console.log(snapshot)
-      console.log(items)
-      // let newState = [];
-      // for (let item in items) {
-      //   newState.push({
-      //     id: item,
-      //     task: items[item].task,
-      //     done: items[item].done
-      //   });
-      // }
-    });
-    todosRef.child("Card").get().then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-  },[])
   const [login, setLogin] = useState({ email: '', password: '' });
+  const {setUserId, userId}  = useInfo()[0];
 
   const log = async (formEvent: any) => {
     formEvent.preventDefault();
     db.collection("users").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const usable = doc.data();
-        if (usable.email == login.email && usable.password == usable.password){
-          console.log('entrei')
+        if (usable.email === login.email && usable.password === login.password){
+          setUserId(usable.email);
         }
       });
       setLogin({ email: '', password: '' });
@@ -96,12 +67,14 @@ function LoginView() {
             required
           />
           <ButtonsBox>
-            <Register>Cadastrar</Register>
+            <StyledLink to = '/registrar'>
+              <Register>Cadastrar</Register>
+            </StyledLink>
             <Login type="submit">Entrar</Login>
           </ButtonsBox>
         </BoxForm>
       </BackgroundImage>
-     
+      {userId? <Redirect to='/perfil'></Redirect>:<></>}
     </>
   );
 }
