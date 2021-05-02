@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, NavBar } from '../../components';
 import {todosRef} from '../../backend/firebase';
 import "firebase/firestore"
 import firebase from 'firebase/app'
+import {H1, Text} from '../../global/components';
 
 import {
-  Box,
+  MiddleBox,
+  Cards,
 } from './styles';
 
 function FeedView() {
+  const [campaigns, setCampaigns] = useState<any>([])
   var db = firebase.firestore();
   db.collection("Hacka").get().then((querySnapshot) => {
     console.log(querySnapshot)
@@ -17,39 +20,34 @@ function FeedView() {
     });
   });
   useEffect(() => {
-    todosRef.once('value', (snapshot) => {
-      let items = snapshot.val();
-      console.log(snapshot)
-      console.log(items)
-      // let newState = [];
-      // for (let item in items) {
-      //   newState.push({
-      //     id: item,
-      //     task: items[item].task,
-      //     done: items[item].done
-      //   });
-      // }
-    });
-    todosRef.child("Card").get().then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
+    db.collection("campaigns").get().then((querySnapshot) => {
+        const auxArray:any = [];
+        querySnapshot.forEach((doc) => {
+            auxArray.push(doc.data());
+        });
+        setCampaigns(auxArray)
+      });
   },[])
   return (
     <>
       <NavBar/>
-      <Card 
-        likes={2} 
-        dislikes={2} 
-        img={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYbM174xWDaTnMb40TN_IbfKPqD4bY7TN4Q&usqp=CAU'}
-        logo={'https://marcas-logos.net/wp-content/uploads/2019/11/Simbolo-Star-Wars.jpg'}
-        topPost={true}
-        />
+      <MiddleBox>
+        <H1 margin='0 0 10px 0'>Olá, Ana!</H1>
+        <Text margin='0 0 80px 0'>Aqui está algumas campanhas para você dar uma olhada!!!</Text>
+        <Cards>
+            {campaigns.map((value:any) => (
+                <Card 
+                  likes={value.likes}
+                  dislikes={value.dislikes}
+                  img={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYbM174xWDaTnMb40TN_IbfKPqD4bY7TN4Q&usqp=CAU'}
+                  logo={'https://marcas-logos.net/wp-content/uploads/2019/11/Simbolo-Star-Wars.jpg'}
+                  topPost={value.topPost}
+                  desc={value.description}
+                  title={value.title}
+                />
+            ))}
+        </Cards>
+        </MiddleBox>
     </>
   );
 }

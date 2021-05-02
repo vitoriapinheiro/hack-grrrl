@@ -12,6 +12,7 @@ export const Container = styled.div`
   box-shadow: 1px 2px 20px -4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   align-items: center;
+  margin-bottom: 30px;
 `;
 
 export const MiddleBox = styled.div`
