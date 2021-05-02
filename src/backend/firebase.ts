@@ -1,4 +1,3 @@
-
 import firebase from 'firebase/app'
 import "firebase/database"
 
@@ -11,11 +10,9 @@ const config = {
     messagingSenderId: process.env.REACT_APP_SID,
     appId: process.env.REACT_APP_APPID,
     measurementId:process.env.REACT_APP_MID
-
 };
 
 firebase.initializeApp(config);
 const databaseRef = firebase.database().ref();
-console.log(firebase.database());
 export const todosRef = databaseRef.child("Tabela")
 export default firebase;
