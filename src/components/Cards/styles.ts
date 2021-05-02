@@ -11,6 +11,7 @@ export const Container = styled.div`
   flex-direction: row;
   box-shadow: 1px 2px 20px -4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  align-items: center;
 `;
 
 export const MiddleBox = styled.div`
@@ -48,7 +49,8 @@ export const CommentBox = styled.div`
 export const Image = styled.img`
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    border-radius: 10px 10px 1px 10px;
+    object-fit: contain;
 `;
 
 export const Logo = styled.img`
@@ -62,7 +64,6 @@ export const Tag = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 5%;
     width:20%;
     border-radius: 10px 0px 0px 0px;
 
@@ -81,3 +82,8 @@ export const BoxImage = styled.div`
     flex-direction: row;
 `;
 
+export const FirstLineContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
