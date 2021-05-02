@@ -5,18 +5,20 @@ import { LoginView }  from "./views";
 import { NavBar, Card } from './components';
 import GlobalStyle from './global/globalStyle';
 import { colors } from './global/tools';
-
+import { StylesProvider } from '@material-ui/core'
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={{ main: { colors } }}>
-        <NavBar/>
-        <Switch>
-          <Route exact path="/" component={LoginView} />
-        </Switch>
-        <GlobalStyle/>
-      </ThemeProvider>
-    </BrowserRouter>
+    <StylesProvider injectFirst>
+      <BrowserRouter>
+        <ThemeProvider theme={{ main: { colors } }}>
+          <NavBar/>
+          <Switch>
+            <Route exact path="/" component={LoginView} />
+          </Switch>
+          <GlobalStyle/>
+        </ThemeProvider>
+      </BrowserRouter>
+    </StylesProvider>
   );
 }
 

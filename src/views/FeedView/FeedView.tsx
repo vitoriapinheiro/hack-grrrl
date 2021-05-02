@@ -6,15 +6,9 @@ import firebase from 'firebase/app'
 
 import {
   Box,
-  TextFieldCustom,
-  BackgroundImage,
-  Login,
-  Register,
-  ButtonsBox,
 } from './styles';
-import { H1 } from '../../global/components';
 
-function LoginView() {
+function FeedView() {
   var db = firebase.firestore();
   db.collection("Hacka").get().then((querySnapshot) => {
     console.log(querySnapshot)
@@ -48,34 +42,15 @@ function LoginView() {
   },[])
   return (
     <>
-      <BackgroundImage>
-        <Box>
-          <H1 weight='300' align='center'>Seja bem-vinda!</H1>
-          <TextFieldCustom
-             className="email"
-             id="filled-basic"
-             label="E-mail"
-             variant="filled"
-             type="email"
-             fullWidth
-          />
-          <TextFieldCustom 
-            className="email"
-            id="filled-basic"
-            label="Senha"
-            variant="filled"
-            type='password'
-            fullWidth
-          />
-          <ButtonsBox>
-            <Register>Cadastrar</Register>
-            <Login>Entrar</Login>
-          </ButtonsBox>
-        </Box>
-      </BackgroundImage>
-     
+      <Card 
+        likes={2} 
+        dislikes={2} 
+        img={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYbM174xWDaTnMb40TN_IbfKPqD4bY7TN4Q&usqp=CAU'}
+        logo={'https://marcas-logos.net/wp-content/uploads/2019/11/Simbolo-Star-Wars.jpg'}
+        topPost={true}
+        />
     </>
   );
 }
 
-export default LoginView ;
+export default FeedView ;
