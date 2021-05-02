@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { LoginView, RegisterView }  from "./views";
+import { LoginView, RegisterView, FeedView }  from "./views";
 // import { NavBar, Card } from './components';
 import GlobalStyle from './global/globalStyle';
 import { colors } from './global/tools';
@@ -15,6 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={LoginView} />
             <Route exact path="/registrar" component={RegisterView} />
+            <Route exact path="/feed" component={FeedView} />
           </Switch>
           <GlobalStyle/>
         </ThemeProvider>

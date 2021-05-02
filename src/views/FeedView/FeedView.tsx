@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Card } from '../../components';
+import { Card, NavBar } from '../../components';
 import {todosRef} from '../../backend/firebase';
 import "firebase/firestore"
 import firebase from 'firebase/app'
@@ -42,6 +42,7 @@ function FeedView() {
   },[])
   return (
     <>
+      <NavBar/>
       <Card 
         likes={2} 
         dislikes={2} 

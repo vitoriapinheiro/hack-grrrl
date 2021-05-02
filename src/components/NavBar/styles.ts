@@ -12,10 +12,9 @@ export const Container = styled.div`
 
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.img`
   display: flex;
-  width: 20px;
-  height: 10px;
+  height: 40px;
 `;
 
 export const MiddleBox = styled.div`
