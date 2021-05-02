@@ -72,13 +72,13 @@ export const Text = styled.p`
     overflow-x: ${(p: Props) => p.overX || 'hidden'};
     overflow-y: ${(p: Props) => p.overY || 'hidden'}; 
     align-self: ${(p: Props) => p.alignSelf || 'inherit'};
-    font-family: ${(p: Props) => p.fontFamily || 'Roboto, sans-serif'};
+    /* font-family: ${(p: Props) => p.fontFamily || 'Lato, sans-serif'}; */
     position: ${(p: Props) => p.position || 'unset'};
     transition: ${(p: Props) => p.transition || 'unset'};
 `;
 
 export const H1 = styled.h1`
-  font-family: ${(p: Props) => p.fontFamily || 'Roboto, sans-serif'};
+  /* font-family: ${(p: Props) => p.fontFamily || 'Lato sans-serif'}; */
   width: ${(p: Props) => p.width || '100%'};
   height: ${(p: Props) => p.height || 'fit-content'};
   margin: ${(p: Props) => p.margin || '0 0'};

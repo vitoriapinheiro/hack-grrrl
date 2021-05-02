@@ -7,4 +7,8 @@ export default createGlobalStyle`
         box-sizing: border-box;
     }
 
+    input, button, h1, h2, h3, p, textarea, label  {
+        font-family: 'Lato', sans-serif;
+    }
+
 `;
