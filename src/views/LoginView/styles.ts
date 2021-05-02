@@ -14,6 +14,7 @@ export const Box = styled.form`
     flex-direction: column;
     align-items:center;
     background-color: white;
+    z-index: 1;
 `;
 
 export const BackgroundImage = styled.div`
@@ -26,6 +27,12 @@ export const BackgroundImage = styled.div`
     background-color:${({ theme }) => theme.main.colors.grayLight};
 `;
 
+export const Wave = styled.img`
+    position: absolute;
+    left:0;
+    bottom: 0;
+    z-index: 0;
+`;
 
 export const ButtonsBox = styled.div`
     width: 100%;

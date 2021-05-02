@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '../../components';
 import {todosRef} from '../../backend/firebase';
 import LogoImg from '../../assets/Logo2.png'
+import WaveImg from '../../assets/Wave.png'
 import "firebase/firestore"
 import firebase from 'firebase/app'
 
@@ -12,7 +13,8 @@ import {
   Login,
   Register,
   ButtonsBox,
-  Logo
+  Logo,
+  Wave
 } from './styles';
 import { H1 } from '../../global/components';
 
@@ -66,6 +68,7 @@ function LoginView() {
     <>
       <BackgroundImage>
         <Logo src={LogoImg}/>
+        <Wave src={WaveImg}/>
         <Box onSubmit={log}>
           <H1 weight='300' align='center'>Seja bem-vinda!</H1>
           <TextFieldCustom

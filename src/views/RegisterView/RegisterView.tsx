@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '../../components';
 import {todosRef} from '../../backend/firebase';
 import LogoImg from '../../assets/Logo2.png';
+import WaveImg from '../../assets/Wave.png'
 import {
   Close as CloseIcon,
   Person,
@@ -24,6 +25,7 @@ import {
   ButtonsBox,
   Logo,
   BoxText,
+  Wave
 } from './styles';
 import { H1 } from '../../global/components';
 
@@ -86,6 +88,7 @@ function RegisterView() {
     <>
       <BackgroundImage>
         <Logo src={LogoImg}/>
+        <Wave src={WaveImg}/>
         <Box onSubmit={register}>
           <H1 weight='300' align='center'>Cadastro</H1>
           <BoxText>
