@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Container = styled.div`
-  width: 1000px;
+  width: 100%;
   height: 200px;
   display: flex;
   flex-direction: row;

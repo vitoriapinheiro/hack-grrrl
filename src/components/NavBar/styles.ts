@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   height: 65px;
-  width: 100vw;
+  width: 100%;
   border-bottom: 4px solid ${({ theme }) => theme.main.colors.purple};
   display: flex;
   align-items: center;
