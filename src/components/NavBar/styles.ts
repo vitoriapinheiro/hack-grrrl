@@ -11,11 +11,9 @@ export const Container = styled.div`
   padding: 0 50px;
 
 `;
-
-export const Logo = styled.div`
+export const Logo = styled.img`
+  width: 100px;
   display: flex;
-  width: 20px;
-  height: 10px;
 `;
 
 export const MiddleBox = styled.div`

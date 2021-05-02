@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from '../../components';
 import {todosRef} from '../../backend/firebase';
 import LogoImg from '../../assets/Logo2.png'
 import WaveImg from '../../assets/Wave.png'
