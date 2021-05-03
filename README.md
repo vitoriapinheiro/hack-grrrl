@@ -52,4 +52,15 @@ Nesse projeto em específico, gostaríamos de ter implementado uma feature que u
 
 + https://miro.com/welcomeonboard/UvhDK7KHfiGI1iiWwnWo7njJQ6bquPcAh4RFlnbVlq7Umtl6UaqlzBH7xAqqYpAE - Plataforma utilizada como suporte de dinâmicas e afins para o desenvolvimento da solução.
 
+## Como testar
+
+1. Abra o terminal e vá para a pasta deste projeto
+
+2. No terminal: <br> <br>
+   2.1 git checkout develop <br>
+   2.2 git pull <br>
+   2.5 yarn install <br>
+   2.6 code <br>
+   2.7 yarn start <br>
+
 ✨👩‍💻✨
