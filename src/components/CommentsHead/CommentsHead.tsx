@@ -30,7 +30,7 @@ export default function CommentsHead({likes, dislikes, img, logo, topPost}: {lik
             </CommentBox>
             <CommentBox>
             <Attention/>
-              <Text textSize = '18px' textColor= '#828282' margin='0px 0px 0 5px'>Denunciar postagem</Text>
+            <Text textSize = '18px' textColor= '#828282' margin='0px 0px 0 5px'>Denunciar </Text>
             </CommentBox>
           </Icons>
         </MiddleBox>

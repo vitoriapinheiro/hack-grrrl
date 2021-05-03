@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ImageItem = styled.img`
   object-fit: contain;
   border-radius: 10px;
+  margin-right: 10px;
 `;
 
 export const ImageContainer = styled.div`

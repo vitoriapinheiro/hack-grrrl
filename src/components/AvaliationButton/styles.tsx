@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface Props {
+  positive?: boolean,
+};
+
+export const Container = styled.div<Props>`
   width: 240px;
   margin-top: 25px;
   margin-bottom: 25px;
+  margin-right: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +16,7 @@ export const Container = styled.div`
   padding: 15px;
   border: 1px solid #828282;
   &:hover{
-        background-color: ${({ theme }) => theme.main.colors.green};
+        background-color:${props => props.positive ? ({ theme }) => theme.main.colors.green: ({ theme }) => theme.main.colors.red};
         transition: background-color 0.1s ease-in;
     }
 `;
