@@ -2,12 +2,6 @@ import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
-export const Box = styled.div``;
-
-export const Container = styled.div`
-  margin-top: 40px;
-`;
-
 
 export const BoxForm = styled.form`
     width: 419px;
@@ -72,17 +66,9 @@ export const Register = styled(Button)`
 `;
 
 export const TextFieldCustom = styled(TextField)`
-  /* & .MuiInputBase-root {
-    height: 45px;
-  }
-  & .MuiFormLabel-root.Mui-focused{
-    color:${({ theme }) => theme.main.colors.darkBlue};
-  } */
+
   & .MuiFilledInput-underline:after, .MuiInput-underline:after{
     border-color: ${({ theme }) => theme.main.colors.purple};
   }
-  /* & .MuiFormLabel-root {
-    margin-top: -3px;
-    font-size: 14px
-  } */
+
 `;

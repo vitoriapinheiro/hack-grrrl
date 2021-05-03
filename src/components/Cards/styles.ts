@@ -5,13 +5,14 @@ interface Props {
 }
 
 export const Container = styled.div`
-  width: 1000px;
+  width: 100%;
   height: 200px;
   display: flex;
   flex-direction: row;
   box-shadow: 1px 2px 20px -4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   align-items: center;
+  margin-bottom: 30px;
 `;
 
 export const MiddleBox = styled.div`
@@ -33,7 +34,7 @@ export const Icons = styled.div`
 `;
 
 export const LikesBox = styled.div`
-  width: 50px;
+  width: 53px;
   display: flex;
   flex-direction: row;
 `;
