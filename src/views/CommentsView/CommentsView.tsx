@@ -7,8 +7,9 @@ import {
   Comments,
   CommentsHead,
   ImagesItens,
-  NavBar,
+  NavBar
  } from '../../components';
+import { Login } from '../LoginView/styles';
 
 import {
   AvaliationButtonContainer,
@@ -16,6 +17,9 @@ import {
   CommentsHeadContainer,
   ImagesContainer,
   CommentsContainer,
+  TextAreaCustom,
+  TextArea,
+  ButtonBox
 } from './styles';
 
 function LoginView() {
@@ -28,16 +32,16 @@ function LoginView() {
             likes={2} 
             dislikes={2} 
             img={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcYbM174xWDaTnMb40TN_IbfKPqD4bY7TN4Q&usqp=CAU'}
-            logo={'https://marcas-logos.net/wp-content/uploads/2019/11/Simbolo-Star-Wars.jpg'}
+            logo={'https://logodownload.org/wp-content/uploads/2014/05/natura-logo-1-1.png'}
             topPost={true}
             />
         </CommentsHeadContainer>
         <ImagesContainer>
           <ImagesItens photo='https://i.pinimg.com/originals/f0/e7/c8/f0e7c8e928576a873838e3c884436615.jpg' />
-          <ImagesItens photo='https://i.pinimg.com/originals/eb/65/c2/eb65c29166b61cbd11f5a5e22c9e55ff.jpg' />
           <ImagesItens photo='https://i.ytimg.com/vi/imP4nRgbq_I/maxresdefault.jpg' />
           <ImagesItens photo='https://i.pinimg.com/originals/f0/e7/c8/f0e7c8e928576a873838e3c884436615.jpg' />
-          <ImagesItens photo='https://i.pinimg.com/originals/eb/65/c2/eb65c29166b61cbd11f5a5e22c9e55ff.jpg' />
+          <ImagesItens photo='https://i.ytimg.com/vi/imP4nRgbq_I/maxresdefault.jpg' />
+          <ImagesItens photo='https://i.pinimg.com/originals/f0/e7/c8/f0e7c8e928576a873838e3c884436615.jpg' />
         </ImagesContainer>
         <CommentsContainer>
           <H1 textSize = '16px' height=''>Comentários</H1>
@@ -67,7 +71,15 @@ function LoginView() {
           <AvaliationButton positive={true}/>
           <AvaliationButton positive={false}/>
         </AvaliationButtonContainer>
+        <TextArea>
+           <TextAreaCustom id="filled-basic" placeholder="Mensagem" variant="outlined" fullWidth multiline rows={9} InputProps={{ disableUnderline: true }} />
+        </TextArea>
+        <ButtonBox>
+          <Login>Enviar Avaliação</Login>
+        </ButtonBox>
+
       </BackgroundImage>
+
     </>
   );
 }

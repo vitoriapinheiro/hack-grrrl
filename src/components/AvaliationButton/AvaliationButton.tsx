@@ -13,7 +13,7 @@ import { ThumbUp, ThumbDown} from '../Icons/Icons';
 export default function AvaliationButton({positive}: {positive: boolean}) {
   return (
     <>
-      <Container>
+      <Container positive={positive}>
         <IconContainer>
         {positive ? (<ThumbUp />) : (<ThumbDown/> )}
         </IconContainer>
