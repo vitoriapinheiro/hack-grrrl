@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Card } from '../../components';
-import {todosRef} from '../../backend/firebase';
+import React, { useState } from 'react';
+import { StyledLink } from '../../components';
 import LogoImg from '../../assets/Logo2.png';
 import WaveImg from '../../assets/Wave.png'
 import {
-  Close as CloseIcon,
   Person,
   Email,
   Phone,
@@ -12,9 +10,8 @@ import {
   Lock,
 } from '@material-ui/icons';
 import { InputAdornment } from '@material-ui/core';
-
 import "firebase/firestore";
-import firebase from 'firebase/app';
+import firebase from '../../backend/firebase';
 
 import {
   Box,
@@ -28,6 +25,7 @@ import {
   Wave
 } from './styles';
 import { H1 } from '../../global/components';
+const images = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3C2iucmr_Z9UdNlf65vlzvPGMOzTtvqPr3A&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBVSOLrQ1_btLnQkVojBkOFqNNXL8z0kjYTz3Kh98ytjexZ79daQxo2sv6AS_h8bO63HU&usqp=CAU', 'https://e7.pngegg.com/pngimages/597/984/png-clipart-female-avatar-woman-avatar-purple-heroes.png']
 
 function RegisterView() {
   var db = firebase.firestore();
@@ -46,42 +44,19 @@ function RegisterView() {
       name: login.name,
       password: login.password,
       phone: login.phone,
-      interest: login.interest,
+      tags: login.interest,
+      img: images[Math.floor(Math.random() * images.length)],
+      age: login.age
   })
   .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
-      setLogin({ name: '', email: '', password: '', phone: '', interest: '' });
+      setLogin({ name: '', email: '', password: '', phone: '', interest: '', age: '' });
   })
   .catch((error) => {
       console.error("Error adding document: ", error);
   });
   }
-
-  useEffect(() => {
-    todosRef.once('value', (snapshot) => {
-      let items = snapshot.val();
-      console.log(snapshot)
-      console.log(items)
-      // let newState = [];
-      // for (let item in items) {
-      //   newState.push({
-      //     id: item,
-      //     task: items[item].task,
-      //     done: items[item].done
-      //   });
-      // }
-    });
-    todosRef.child("Card").get().then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log("No data available");
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
-  },[])
-  const [login, setLogin] = useState({ name: '', email: '', password: '', phone: '', interest: '' });
+  const [login, setLogin] = useState({ name: '', email: '', password: '', phone: '', interest: '', age: '' });
 
 
   return (
@@ -100,6 +75,23 @@ function RegisterView() {
               type="text"
               value={login.name}
               onChange={(e) => setLogin({ ...login, name: e.target.value })}
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person color="action" />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <TextFieldCustom
+              className="age"
+              id="filled-basic"
+              placeholder="Idade"
+              variant="filled"
+              type="age"
+              value={login.age}
+              onChange={(e) => setLogin({ ...login, age: e.target.value })}
               required
               InputProps={{
                 startAdornment: (
@@ -143,12 +135,13 @@ function RegisterView() {
                 ),
               }}
             />
+            
             <TextFieldCustom
               className="interest"
               id="filled-basic"
               placeholder="Interesses"
               variant="filled"
-              type="email"
+              type="text"
               value={login.interest}
               onChange={(e) => setLogin({ ...login, interest: e.target.value })}
               required
@@ -179,7 +172,9 @@ function RegisterView() {
             />
           </BoxText>
           <ButtonsBox>
-            <Register>Cadastrar</Register>
+            <StyledLink to = '/'>
+              <Register>Cancelar</Register>
+            </StyledLink >
             <Login type="submit" >Finalizar Cadastro</Login>
           </ButtonsBox>
         </Box>

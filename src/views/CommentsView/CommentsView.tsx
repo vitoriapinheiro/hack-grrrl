@@ -7,6 +7,7 @@ import {
   Comments,
   CommentsHead,
   ImagesItens,
+  NavBar,
  } from '../../components';
 
 import {
@@ -20,6 +21,7 @@ import {
 function LoginView() {
   return (
     <>
+      <NavBar/>
       <BackgroundImage>
         <CommentsHeadContainer>
           <CommentsHead 

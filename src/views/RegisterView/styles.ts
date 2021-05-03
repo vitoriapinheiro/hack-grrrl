@@ -44,8 +44,10 @@ export const ButtonsBox = styled.div`
 export const Logo = styled.img`
     width: 100px;
     margin-bottom: 50px;
-`;
+    object-fit: cover;
+    background-size: cover;    
 
+`;
 
 export const Login = styled(Button)`
     background-color: ${({ theme }) => theme.main.colors.purple};
@@ -56,6 +58,7 @@ export const Login = styled(Button)`
         background-color: ${({ theme }) => theme.main.colors.purpleLight}
     }
 `;
+
 export const Register = styled(Button)`
     background-color: white;
     font-family: 'Lato', sans-serif;
