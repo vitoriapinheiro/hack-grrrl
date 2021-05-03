@@ -3,6 +3,7 @@ import React from 'react';
 import { Container , Image, Title, LikesBox, CommentBox, Icons, MiddleBox, Logo, Tag, BoxImage, FirstLineContainer} from './styles';
 import { Text, H1 } from '../../global/components';
 import { ThumbUp, ThumbDown, Attention, Comment, Star } from '../Icons/Icons';
+import {StyledLink} from '../../components';
 
 export default function Cards({likes, dislikes, img, logo, topPost, desc, title}: {likes: number, dislikes:number, img:string, logo:string, topPost:Boolean, desc:string, title:string}) {
   return (
@@ -13,14 +14,18 @@ export default function Cards({likes, dislikes, img, logo, topPost, desc, title}
         </BoxImage>
         <MiddleBox>
         <FirstLineContainer>
-          <Title>
-            <H1 textSize = '30px' height=''>{title}</H1>
-          </Title>
+          <StyledLink to='/comentarios'>
+            <Title>
+              <H1 textSize = '30px' height=''>{title}</H1>
+            </Title>
+          </StyledLink>
           {topPost ? 
           <Tag><Star/></Tag> :
           <></>}
           </FirstLineContainer>
-          <Text>{desc}</Text>
+          <StyledLink to='/comentarios'>
+            <Text>{desc}</Text>
+          </StyledLink>
           <Icons>
             <LikesBox>
               <Text textColor='#828282'>{likes}</Text>

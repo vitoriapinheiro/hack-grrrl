@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import LogoImg from '../../assets/Logo2.png'
 import WaveImg from '../../assets/Wave.png'
 import "firebase/firestore"
-// import firebase from 'firebase/app'
 import firebase from '../../backend/firebase';
 import { useInfo } from '../../hook/LoggedProvider';
 import { Redirect } from 'react-router-dom';

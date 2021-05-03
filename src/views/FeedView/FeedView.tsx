@@ -48,7 +48,7 @@ function FeedView() {
                   likes={value.likes}
                   dislikes={value.dislikes}
                   img={value.img}
-                  logo={'https://marcas-logos.net/wp-content/uploads/2019/11/Simbolo-Star-Wars.jpg'}
+                  logo={'https://logodownload.org/wp-content/uploads/2014/05/natura-logo-1-1.png'}
                   topPost={value.topPost}
                   desc={value.description}
                   title={value.title}

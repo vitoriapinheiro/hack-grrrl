@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { LoginView, RegisterView, FeedView, ProfileView }  from "./views";
+import { LoginView, RegisterView, FeedView, ProfileView, CommentsView }  from "./views";
 // import { NavBar, Card } from './components';]
 import GlobalStyle from './global/globalStyle';
 import { colors } from './global/tools';
@@ -19,6 +19,7 @@ function App() {
               <Route exact path="/registrar" component={RegisterView} />
               <Route exact path="/feed" component={FeedView} />
               <Route exact path="/perfil" component={ProfileView} />
+              <Route exact path="/comentarios" component={CommentsView} />
             </Switch>
             <GlobalStyle/>
           </ThemeProvider>
