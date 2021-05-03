@@ -50,7 +50,7 @@ Nesse projeto em específico, gostaríamos de ter implementado uma feature que u
 
 + https://www.notion.so/Hacka-GRRRLL-3086ef6ded934b31a0b6ac8ddb4d2dfb - Plataforma utilizada para a organização do time e centralização das informações do projeto.
 
-+ https://miro.com/welcomeonboard/UvhDK7KHfiGI1iiWwnWo7njJQ6bquPcAh4RFlnbVlq7Umtl6UaqlzBH7xAqqYpAE - Plataforma utilizada como suporte de dinâmicas e afins para o desenvolvimento da solução.
++ https://miro.com/app/board/o9J_kgY7RPA=/ - Plataforma utilizada como suporte de dinâmicas e afins para o desenvolvimento da solução.
 
 ## Como testar
 
