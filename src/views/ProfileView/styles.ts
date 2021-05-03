@@ -39,3 +39,7 @@ export const OuterBox = styled.div`
     justify-content: center;
     align-items: center;
 `;
+
+export const VizualizationHistory = styled.div`
+    margin-top: 50px;
+`;
