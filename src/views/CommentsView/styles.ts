@@ -18,6 +18,8 @@ export const CommentsHeadContainer = styled.div`
 export const ImagesContainer = styled.div`
     margin-bottom: 30px;
     width: 90%;
+    display: flex;
+    flex-direction: row;
 `;
 
 export const CommentsContainer = styled.div`
