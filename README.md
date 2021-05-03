@@ -1,6 +1,6 @@
 # Hack Grrrl 2021
 
-Projeto em desenvolvimento para o Hack Grrrl que ocorreu durante os dias 01.05.21 e 02.05.21, a solução se trata de uma plataforma nomeada como ADA.
+Projeto em desenvolvimento para o Hack Grrrl que ocorreu durante os dias 01.05.21 e 02.05.21, a solução se trata de uma plataforma nomeada como <b>ADA<b>.
 
 A motivação em participar do Hackathon foi, de forma unanime pelo grupo, para criação de conexões com outras meninas interessadas por tecnologia, tal como uma maneira de estar aprendendo e se desafiando em um ambiente totalmente novo e experimentador.
 
@@ -46,17 +46,10 @@ Nesse projeto em específico, gostaríamos de ter implementado uma feature que u
 
 <h3>Links úteis:</h3>
 
-+ https://www.figma.com/file/u962T1LwvGBJXcMeRg5YYH/SMILES - Prototipo que serviu como base para a criação do projeto.
++ https://www.figma.com/file/yu31E6D0SfnoTwX1MjWMeM/Hacka-GRLL?node-id=0%3A1 - Prototipo que serviu como base para a criação do projeto.
 
-+ https://www.notion.so/Hacka-SMILES-780afa02f96042fda30c9466732d5310 - Plataforma utilizada para a organização do time.
++ https://www.notion.so/Hacka-GRRRLL-3086ef6ded934b31a0b6ac8ddb4d2dfb - Plataforma utilizada para a organização do time e centralização das informações do projeto.
 
-+ https://miro.com/app/board/o9J_kpPTNOs=/- Plataforma utilizada como suporte de dinâmicas e afins para o desenvolvimento da solução.
++ https://miro.com/welcomeonboard/UvhDK7KHfiGI1iiWwnWo7njJQ6bquPcAh4RFlnbVlq7Umtl6UaqlzBH7xAqqYpAE - Plataforma utilizada como suporte de dinâmicas e afins para o desenvolvimento da solução.
 
-<h3>Instruções básicas:</h3>
-
-+ Comece o fluxo da solução pelo index.html
-
-+ Testar em telas Full-HD
-
-
-
+✨👩‍💻✨
