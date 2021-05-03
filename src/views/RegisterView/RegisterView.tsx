@@ -10,7 +10,6 @@ import {
   Lock,
 } from '@material-ui/icons';
 import { InputAdornment } from '@material-ui/core';
-
 import "firebase/firestore";
 import firebase from '../../backend/firebase';
 
@@ -26,6 +25,7 @@ import {
   Wave
 } from './styles';
 import { H1 } from '../../global/components';
+const images = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3C2iucmr_Z9UdNlf65vlzvPGMOzTtvqPr3A&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBVSOLrQ1_btLnQkVojBkOFqNNXL8z0kjYTz3Kh98ytjexZ79daQxo2sv6AS_h8bO63HU&usqp=CAU', 'https://e7.pngegg.com/pngimages/597/984/png-clipart-female-avatar-woman-avatar-purple-heroes.png']
 
 function RegisterView() {
   var db = firebase.firestore();
@@ -44,17 +44,19 @@ function RegisterView() {
       name: login.name,
       password: login.password,
       phone: login.phone,
-      interest: login.interest,
+      tags: login.interest,
+      img: images[Math.floor(Math.random() * images.length)],
+      age: login.age
   })
   .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
-      setLogin({ name: '', email: '', password: '', phone: '', interest: '' });
+      setLogin({ name: '', email: '', password: '', phone: '', interest: '', age: '' });
   })
   .catch((error) => {
       console.error("Error adding document: ", error);
   });
   }
-  const [login, setLogin] = useState({ name: '', email: '', password: '', phone: '', interest: '' });
+  const [login, setLogin] = useState({ name: '', email: '', password: '', phone: '', interest: '', age: '' });
 
 
   return (
@@ -73,6 +75,23 @@ function RegisterView() {
               type="text"
               value={login.name}
               onChange={(e) => setLogin({ ...login, name: e.target.value })}
+              required
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Person color="action" />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <TextFieldCustom
+              className="age"
+              id="filled-basic"
+              placeholder="Idade"
+              variant="filled"
+              type="age"
+              value={login.age}
+              onChange={(e) => setLogin({ ...login, age: e.target.value })}
               required
               InputProps={{
                 startAdornment: (
@@ -116,12 +135,13 @@ function RegisterView() {
                 ),
               }}
             />
+            
             <TextFieldCustom
               className="interest"
               id="filled-basic"
               placeholder="Interesses"
               variant="filled"
-              type="email"
+              type="text"
               value={login.interest}
               onChange={(e) => setLogin({ ...login, interest: e.target.value })}
               required

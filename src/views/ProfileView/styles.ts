@@ -27,6 +27,10 @@ export const ProfilePicture = styled.img`
     border-radius: 100%;
     width: 150px;
     height: 150px;
+    object-fit: cover;
+    overflow: hidden;
+    border: 1 px solid black;
+
 `;
 
 export const OuterBox = styled.div`

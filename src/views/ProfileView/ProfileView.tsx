@@ -12,14 +12,22 @@ import {
   Tag,
   OuterBox
 } from './styles';
+import { useInfo } from '../../hook/LoggedProvider';
 
 function ProfileView() {
   const [userInfo, setUserInfo] = useState<any>({})
   var db = firebase.firestore();
-  db.collection("users").doc('89Eou9C1Tz7rQLmntIbK')
+  const {setUserId, userId}  = useInfo()[0];
+
+  db.collection("users").where("email", "==", userId)
   .get().then((querySnapshot) => {
-    setUserInfo(querySnapshot.data());
+    let auxInfo:any = [];
+    querySnapshot.forEach((doc) => {
+        auxInfo = (doc.data());
+    });
+    setUserInfo(auxInfo);
   });
+
  
   return (
     <>
@@ -30,9 +38,7 @@ function ProfileView() {
           <H1 align='center'>{userInfo.name}, {userInfo.age}</H1>
           <Text align='center' margin= '0 0 10px 0'>Categoria de interesse:</Text>
           <Categories>
-            {(userInfo.tags)?.map((value:any) => (
-              <Tag><Text>{value}</Text></Tag>
-            ))}
+              <Tag><Text>{userInfo.tags}</Text></Tag>
           </Categories>   
         </MiddleBox>
       </OuterBox>
